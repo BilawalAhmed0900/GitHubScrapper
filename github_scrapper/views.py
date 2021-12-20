@@ -11,7 +11,6 @@ def home_view(request, *args, **kwargs):
 
 
 def search_view(request, *args, **kwargs):
-    print(request.POST)
     tag = request.POST.get("tag")
     page_num = request.POST.get("page")
     if tag is None:
