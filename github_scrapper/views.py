@@ -41,7 +41,11 @@ def search_view(request, *args, **kwargs):
     for index, child in enumerate(users_list_div):
         full_name = child.text.strip()
         user_name = child.find_next("a").text.strip()
-        note = child.find_next("p", {"class": "mb-1"}).text.strip().replace("\r", "").replace("\n", "")
+        note = child.find_next("p", {"class": "mb-1"})
+        if note is not None:
+            note = note.text.strip().replace("\r", "").replace("\n", "")
+        else:
+            note = ""
         users_list.append([index + 1, full_name, user_name, note])
 
     context = {
