@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub Scrapper</title>
+</head>
+<body>
+    {% if requests_upper is None %}
+        <div style="display: flex; justify-content: center;">
+            <form action="/search/" method="POST" > {% csrf_token %}
+                <label for="tag">Tag:&nbsp&nbsp</label>
+                <input type="text" id="tag" name="tag">
+                <label for="page">&nbspPage:&nbsp</label>
+                <input type="number" id="page" name="page" value="1">
+                <!--<label for="go_deeper">&nbsp&nbspDeeper:</label>-->
+                <!--<input type="checkbox" id="go_deeper" name="go_deeper">-->
+                <input type="submit" value="Fetch">
+            </form>
+        </div>
+    {% else %}
+        <div style="display: flex; justify-content: center;">
+        <form action="/search/" method="POST" > {% csrf_token %}
+            <label for="tag">Tag:&nbsp&nbsp</label>
+            <input type="text" id="tag" name="tag" value="{{ requests_upper.tag }}">
+            <label for="page">&nbspPage:&nbsp</label>
+            <input type="number" id="page" name="page" value="{{ requests_upper.page }}">
+            <!--<label for="go_deeper">&nbsp&nbspDeeper:</label>-->
+            <!--<input type="checkbox" id="go_deeper" name="go_deeper">-->
+            <input type="submit" value="Fetch">
+        </form>
+        </div>
+    {% endif %}
+
+    {% block content %} {% endblock %}
+</body>
+</html>

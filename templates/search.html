@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    <div style="display: flex; justify-content: center;">
+        <table>
+            <tr>
+                <th>
+                    Number
+                </th>
+                <th>
+                    Username
+                </th>
+                <th>
+                    Display name
+                </th>
+                <th>
+                    Tag line
+                </th>
+            </tr>
+
+            {% for index, d_name, u_name, tag in users %}
+                <tr>
+                    <td>
+                        {{ index }}
+                    </td>
+                    <td>
+                        {{ u_name }}
+                    </td>
+                    <td>
+                        {{ d_name }}
+                    </td>
+                    <td>
+                        {{ tag }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+<style>
+    table{
+        border: 1px solid black;
+    }
+    th{
+        border: 1px solid black;
+    }
+    td{
+        border: 1px solid black;
+    }
+    tr{
+        border: 1px solid black;
+    }
+</style>
+
+{% endblock %}
