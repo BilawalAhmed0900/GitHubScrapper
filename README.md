@@ -1,13 +1,13 @@
 # .env file
 ## Format
-  SECRET_KEY=...&nbsp;
-  PGSQL_DB=...&nbsp;
-  PGSQL_USER=...&nbsp;
-  PGSQL_PASS=...&nbsp;
-  PGSQL_HOST=localhost&nbsp;
-  PGSQL_PORT=5432&nbsp;
+  SECRET_KEY=...\
+  PGSQL_DB=...\
+  PGSQL_USER=...\
+  PGSQL_PASS=...\
+  PGSQL_HOST=localhost\
+  PGSQL_PORT=5432
 
 # Modules needed
-  django&nbsp;
-  python-dotenv&nbsp;
-  psycopg&nbsp;
+  django\
+  python-dotenv\
+  psycopg
