@@ -6,6 +6,9 @@ from bs4 import BeautifulSoup
 
 
 # Create your views here.
+import github_scrapper.models
+
+
 def home_view(request, *args, **kwargs):
     return render(request, 'base.html')
 
@@ -46,6 +49,13 @@ def search_view(request, *args, **kwargs):
             note = note.text.strip().replace("\r", "").replace("\n", "")
         else:
             note = ""
+
+        scrapped_user = github_scrapper.models.ScrappedUser()
+        scrapped_user.username = user_name
+        scrapped_user.fullname = full_name
+        scrapped_user.notes = note
+        scrapped_user.save()
+
         users_list.append([index + 1, full_name, user_name, note])
 
     context = {
